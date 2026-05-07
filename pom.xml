@@ -27,7 +27,7 @@
 		<profile>
 			<id>mac</id>
 			<activation>
-				<os><family>mac</family></os>
+				<os><family>mac</family><arch>x86_64</arch></os>
 			</activation>
 			<properties><javafx.platform>mac</javafx.platform></properties>
 		</profile>
@@ -98,32 +98,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-					<outputDirectory>${basedir}/target/classes</outputDirectory>
-					<resources>
-						<resource>
-							<directory>src/main/resources</directory>
-							<filtering>true</filtering>
-							<includes>
-								<include>**/*.fxml</include>
-							</includes>
-						</resource>
-					</resources>
-				</configuration>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
