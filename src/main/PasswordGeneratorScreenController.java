@@ -34,21 +34,33 @@ public class PasswordGeneratorScreenController extends Controller {
      */
     @FXML
     private void generatePasswordButtonClicked() {
-        // Get the values of each CheckBox and TextField
         boolean wantsUpperCase = upperCheck.isSelected();
         boolean wantsLowerCase = lowerCheck.isSelected();
         boolean wantsNumbers = numberCheck.isSelected();
         boolean wantsSpecialCharacters = specialCharCheck.isSelected();
-        int length = Integer.parseInt(lengthTextField.getText());
 
-        // Generate password using the passwordGenerator class
-        password = passwordGenerator.generatePassword(wantsUpperCase, wantsLowerCase,
+        // Validate length input
+        int length;
+        try {
+            length = Integer.parseInt(lengthTextField.getText());
+            if (length < 1) {
+                generatedPasswordLabel.setText("Please enter a length of at least 1.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            generatedPasswordLabel.setText("Please enter a valid number for the length.");
+            return;
+        }
+
+        // Require at least one character type to be selected
+        if (!wantsUpperCase && !wantsLowerCase && !wantsNumbers && !wantsSpecialCharacters) {
+            generatedPasswordLabel.setText("Please select at least one character type.");
+            return;
+        }
+
+        password = PasswordGenerator.generatePassword(wantsUpperCase, wantsLowerCase,
                 wantsNumbers, wantsSpecialCharacters, length);
-
-        // Set the generated password to the Label
         generatedPasswordLabel.setText(password);
-       
-        
     }
 
     /**

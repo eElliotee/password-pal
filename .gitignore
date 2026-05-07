@@ -1,1 +1,14 @@
+# Build output
 /target/
+/bin/
+
+# Environment variables — never commit your API key
+.env
+
+# macOS
+.DS_Store
+
+# Eclipse IDE files
+.classpath
+.project
+.settings/

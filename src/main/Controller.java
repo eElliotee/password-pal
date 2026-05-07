@@ -3,11 +3,7 @@ package main;
 import javafx.fxml.FXML;
 
 /**
- * 
- */
-
-/**
- * 
+ * Base controller providing shared navigation functionality for all screens.
  */
 public class Controller {
 	/**

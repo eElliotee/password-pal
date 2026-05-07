@@ -1,54 +1,67 @@
-Password Pal README
+# Password Pal
 
-Welcome to Password Pal! This README will guide you through setting up and accessing the project.
+A JavaFX desktop application for password security. Check if your email has appeared in a data breach, generate strong passwords, and verify password strength against NIST standards.
 
-Project Overview:
+## Features
 
---This Java project is designed to check if your email has been caught in any data breaches, as well as generate passwords and check password strength based on NIST standards.
+- **Email Breach Checker** — Queries the [Have I Been Pwned](https://haveibeenpwned.com/) API to see if an email address appears in any known data breaches
+- **Password Generator** — Generates cryptographically random passwords with customizable character sets and length
+- **Password Strength Checker** — Evaluates passwords against [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) guidelines
+- **About Screen** — App info and usage tips
 
-Before you begin, ensure you have met the following requirements:
+## Prerequisites
 
---JDK (Java Development Kit) installed on your system.
+- Java 17+
+- Maven 3.6+
+- A free [Have I Been Pwned API key](https://haveibeenpwned.com/API/Key) (required for the breach checker feature)
 
---IDE (Integrated Development Environment) such as IntelliJ IDEA, Eclipse, or any text editor of your choice.
+## Setup
 
---Basic understanding of Java programming language.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/password-pal.git
+   cd password-pal
+   ```
 
-To get started with this project, follow these steps:
+2. **Add your API key**
 
---Clone the repository:
- git clone <repository_url>
+   Copy the example environment file and fill in your key:
+   ```bash
+   cp .env.example .env
+   ```
+   Then open `.env` and replace `your_api_key_here` with your actual HIBP API key.
 
---Open the project in your IDE: 
- Open your preferred IDE and import the project into it.
+3. **Build and run**
+   ```bash
+   mvn clean javafx:run
+   ```
 
---Explore the project structure:
- Familiarize yourself with the project structure, including source files, resources, and any configuration files.
+## Project Structure
 
-Usage:
+```
+src/main/
+├── MainController.java                   # App entry point and main menu
+├── PasswordGenerator.java                # Password generation logic
+├── PasswordStrengthCheck.java            # NIST strength evaluation logic
+├── HIBPApiService.java                   # Have I Been Pwned API client
+├── Breach.java                           # Data model for a breach record
+├── ScreenSwitcher.java                   # JavaFX screen navigation utility
+├── Controller.java                       # Base controller (shared back button)
+├── EmailBreachesScreenController.java
+├── PasswordGeneratorScreenController.java
+├── PasswordStrengthCheckScreenController.java
+├── AboutScreenController.java
+└── *.fxml                                # UI layouts
+```
 
-To use this project, follow these steps:
+## Built With
 
---Compile the Code
+- [JavaFX 17](https://openjfx.io/) — UI framework
+- [Have I Been Pwned API v3](https://haveibeenpwned.com/API/v3) — Breach data
+- [dotenv-java](https://github.com/cdimascio/dotenv-java) — Environment variable loading
+- [org.json](https://github.com/stleary/JSON-java) — JSON parsing
+- [jsoup](https://jsoup.org/) — HTML sanitization for breach descriptions
 
---Navigate to HIBPApiService.java, on line 21, enter your API key for the HaveIBeenPwned API.
+## License
 
-Contributing:
-
-If you'd like to contribute to this project, follow these steps:
-
---Fork the repository.
-
---Create a new branch (git checkout -b feature/fooBar).
-
---Make your changes.
-
---Commit your changes (git commit -am 'Add some fooBar').
-
---Push to the branch (git push origin feature/fooBar).
-
---Create a new Pull Request.
-
-License:
-
---This project is licensed under the MIT License - see the LICENSE.md file for details.
+MIT — see [LICENSE](LICENSE) for details.

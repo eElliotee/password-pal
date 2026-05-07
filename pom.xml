@@ -2,9 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>edu.wit.cs.comp1050</groupId>
-	<artifactId>javafx_maven_example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.ellioteldridge</groupId>
+	<artifactId>password-pal</artifactId>
+	<version>1.0.0</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
@@ -13,16 +13,22 @@
 	</properties>
 	<dependencies>
 		<dependency>
-        <groupId>org.json</groupId>
-        <artifactId>json</artifactId>
-        <version>20210307</version>
-    </dependency>
-    <dependency>
-   		<groupId>org.jsoup</groupId>
-    	<artifactId>jsoup</artifactId>
-    	<version>1.17.2</version>
-	</dependency>
-		<!-- JavaFx -->	
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20210307</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.17.2</version>
+		</dependency>
+		<!-- Load API keys from a .env file -->
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>dotenv-java</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<!-- JavaFx -->
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-base</artifactId>
@@ -37,9 +43,8 @@
 
 		<dependency>
 			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-graphics </artifactId>
+			<artifactId>javafx-graphics</artifactId>
 			<version>${javafx.version}</version>
-			<classifier>win</classifier>
 		</dependency>
 
 		<dependency>

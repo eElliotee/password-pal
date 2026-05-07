@@ -29,7 +29,7 @@ public class PasswordStrengthCheckScreenController extends Controller {
     	String password = enterPasswordTextField.getText();
 
         // Check the strength of the password
-        String passwordStrength = passwordStrengthCheck.checkStrength(password);
+        String passwordStrength = PasswordStrengthCheck.checkStrength(password);
 
         // Set the result of checkStrength to the text of the label
         passwordStrengthLabel.setText(passwordStrength);

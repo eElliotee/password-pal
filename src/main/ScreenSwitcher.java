@@ -40,8 +40,8 @@ public class ScreenSwitcher {
             stage.setScene(scene);
             stage.show();
             
-//I was encountering this error so I added try catch statements in case it occurs while the program is running
         } catch (IOException e) {
+            System.err.println("Failed to load screen: " + fxmlPath);
             e.printStackTrace();
         }
     }
