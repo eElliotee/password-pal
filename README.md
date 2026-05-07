@@ -19,7 +19,7 @@ A JavaFX desktop application for password security. Check if your email has appe
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/password-pal.git
+   git clone https://github.com/eElliotee/password-pal.git
    cd password-pal
    ```
 
@@ -31,10 +31,23 @@ A JavaFX desktop application for password security. Check if your email has appe
    ```
    Then open `.env` and replace `your_api_key_here` with your actual HIBP API key.
 
-3. **Build and run**
-   ```bash
-   mvn clean javafx:run
-   ```
+## Running
+
+### Option A — Run directly from source
+```bash
+mvn clean javafx:run
+```
+
+### Option B — Build and run a fat JAR
+```bash
+# Build (auto-detects your OS and bundles the right JavaFX natives)
+mvn clean package
+
+# Run
+java -jar target/password-pal-1.0.0-shaded.jar
+```
+
+The JAR is self-contained — no JavaFX installation required on the target machine, just Java 11+.
 
 ## Project Structure
 
